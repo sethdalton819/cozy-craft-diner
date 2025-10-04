@@ -9,7 +9,7 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 bg-background" ref={ref}>
+    <section id="about" className="py-32 bg-background" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,9 +36,9 @@ const About = () => {
             <img
               src={aboutImage1}
               alt="Restaurant interior"
-              className="rounded-lg shadow-medium w-full h-[400px] object-cover"
+              className="rounded-lg shadow-strong w-full h-[400px] object-cover hover-lift"
             />
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gold/10 rounded-lg -z-10" />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gold/20 rounded-lg -z-10" />
           </motion.div>
 
           <motion.div
@@ -95,9 +95,9 @@ const About = () => {
             <img
               src={aboutImage2}
               alt="Chef preparing food"
-              className="rounded-lg shadow-medium w-full h-[400px] object-cover"
+              className="rounded-lg shadow-strong w-full h-[400px] object-cover hover-lift"
             />
-            <div className="absolute -top-6 -left-6 w-32 h-32 bg-gold/10 rounded-lg -z-10" />
+            <div className="absolute -top-6 -left-6 w-32 h-32 bg-gold/20 rounded-lg -z-10" />
           </motion.div>
         </div>
       </div>

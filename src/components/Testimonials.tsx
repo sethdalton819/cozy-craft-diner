@@ -33,7 +33,7 @@ const Testimonials = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="testimonials" className="py-24 bg-secondary" ref={ref}>
+    <section id="testimonials" className="py-32 bg-secondary" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ const Testimonials = () => {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              <Card className="p-8 h-full hover:shadow-gold transition-all duration-300 bg-card border-border">
+              <Card className="p-8 h-full hover-glow hover:-translate-y-1 transition-all duration-500 bg-card border-border">
                 <div className="flex items-center mb-6">
                   <div className="w-14 h-14 rounded-full bg-gold flex items-center justify-center text-primary font-bold text-lg mr-4">
                     {testimonial.initials}

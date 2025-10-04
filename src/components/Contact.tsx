@@ -47,7 +47,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-background" ref={ref}>
+    <section id="contact" className="py-32 bg-background" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -129,7 +129,7 @@ const Contact = () => {
             {contactInfo.map((info, index) => (
               <Card
                 key={info.title}
-                className="p-6 flex items-start gap-4 bg-card border-border hover:shadow-soft transition-shadow"
+                className="p-6 flex items-start gap-4 bg-card border-border hover-glow hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
                   <info.icon className="w-6 h-6 text-gold" />

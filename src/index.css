@@ -54,6 +54,11 @@ All colors MUST be HSL.
     --shadow-soft: 0 4px 20px rgba(25, 20, 15, 0.08);
     --shadow-medium: 0 8px 30px rgba(25, 20, 15, 0.12);
     --shadow-gold: 0 4px 20px rgba(200, 150, 50, 0.15);
+    --shadow-strong: 0 12px 40px rgba(25, 20, 15, 0.18);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
@@ -116,6 +121,10 @@ All colors MUST be HSL.
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
     --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.4);
     --shadow-gold: 0 4px 20px rgba(200, 150, 50, 0.25);
+    --shadow-strong: 0 12px 40px rgba(0, 0, 0, 0.5);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 }
 
@@ -148,5 +157,25 @@ All colors MUST be HSL.
   
   .shadow-gold {
     box-shadow: var(--shadow-gold);
+  }
+  
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-strong;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-gold;
   }
 }

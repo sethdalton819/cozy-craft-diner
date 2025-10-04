@@ -73,7 +73,7 @@ const Menu = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="menu" className="py-24 bg-secondary" ref={ref}>
+    <section id="menu" className="py-32 bg-secondary" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -105,7 +105,7 @@ const Menu = () => {
                 {category.items.map((item, itemIndex) => (
                   <Card
                     key={item.name}
-                    className="overflow-hidden group hover:shadow-gold transition-all duration-300 cursor-pointer bg-card border-border"
+                    className="overflow-hidden group hover-glow hover:-translate-y-1 transition-all duration-500 cursor-pointer bg-card border-border"
                   >
                     <div className="flex flex-col sm:flex-row">
                       <div className="relative sm:w-48 h-48 sm:h-auto overflow-hidden">
