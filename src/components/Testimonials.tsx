@@ -3,6 +3,13 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Star } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const testimonials = [
   {
@@ -50,36 +57,48 @@ const Testimonials = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-            >
-              <Card className="p-8 h-full hover-glow hover:-translate-y-1 transition-all duration-500 bg-card border-border">
-                <div className="flex items-center mb-6">
-                  <div className="w-14 h-14 rounded-full bg-gold flex items-center justify-center text-primary font-bold text-lg mr-4">
-                    {testimonial.initials}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-primary">{testimonial.name}</h4>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  </div>
-                </div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-5xl mx-auto"
+        >
+          <CarouselContent>
+            {testimonials.map((testimonial, index) => (
+              <CarouselItem key={testimonial.name} className="md:basis-1/2 lg:basis-1/3">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="h-full"
+                >
+                  <Card className="p-8 h-full hover-glow hover:-translate-y-1 transition-all duration-500 bg-card border-border">
+                    <div className="flex items-center mb-6">
+                      <div className="w-14 h-14 rounded-full bg-gold flex items-center justify-center text-primary font-bold text-lg mr-4">
+                        {testimonial.initials}
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary">{testimonial.name}</h4>
+                        <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                      </div>
+                    </div>
 
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-gold text-gold" />
-                  ))}
-                </div>
+                    <div className="flex mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 fill-gold text-gold" />
+                      ))}
+                    </div>
 
-                <p className="text-muted-foreground italic">{testimonial.text}</p>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+                    <p className="text-muted-foreground italic">{testimonial.text}</p>
+                  </Card>
+                </motion.div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
+        </Carousel>
       </div>
     </section>
   );
